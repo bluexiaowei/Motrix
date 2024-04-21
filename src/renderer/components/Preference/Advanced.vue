@@ -1,13 +1,5 @@
 <template>
   <el-container class="content panel" direction="vertical">
-    <el-header class="panel-header" height="84">
-      <h4 class="hidden-xs-only">{{ title }}</h4>
-      <mo-subnav-switcher
-        :title="title"
-        :subnavs="subnavs"
-        class="hidden-sm-and-up"
-      />
-    </el-header>
     <el-main class="panel-content">
       <el-form
         class="form-preference"
