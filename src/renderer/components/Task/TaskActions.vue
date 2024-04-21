@@ -161,12 +161,14 @@
 
 <style lang="scss">
 .task-actions {
-  position: absolute;
-  top: 44px;
-  right: 0;
-  height: 24px;
-  padding: 0;
-  overflow: hidden;
+  // position: absolute;
+  // top: 44px;
+  // right: 0;
+  width: 3em;
+  padding: 12px 0 0 0;
+  // height: 24px;
+  // padding: 0;
+  // overflow: hidden;
   user-select: none;
   cursor: default;
   text-align: right;

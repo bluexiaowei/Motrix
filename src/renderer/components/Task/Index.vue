@@ -1,19 +1,21 @@
 <template>
   <el-container
     class="main panel"
-    direction="horizontal"
+    direction="vertical"
   >
     <el-aside
-      width="200px"
+      width="100%"
       class="subnav hidden-xs-only"
     >
       <mo-task-subnav :current="status" />
+      <!-- <mo-task-actions /> -->
     </el-aside>
     <el-container
       class="content panel"
-      direction="vertical"
+      direction="horizontal"
+      style="height: 'calc(100% - 5px); overflow: auto;'"
     >
-      <el-header
+      <!-- <el-header
         class="panel-header"
         height="84"
       >
@@ -24,7 +26,8 @@
           class="hidden-sm-and-up"
         />
         <mo-task-actions />
-      </el-header>
+      </el-header> -->
+      <mo-task-actions />
       <el-main class="panel-content">
         <mo-task-list />
       </el-main>

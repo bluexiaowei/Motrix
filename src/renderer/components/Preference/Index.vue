@@ -1,9 +1,9 @@
 <template>
-  <el-container class="main panel" direction="horizontal">
-    <el-aside width="200px" class="subnav hidden-xs-only">
+  <el-container class="main panel" direction="vertical">
+    <el-aside width="100%" class="subnav hidden-xs-only">
       <router-view name="subnav" />
     </el-aside>
-    <router-view name="form" />
+    <router-view name="form" style="height: 'calc(100% - 5px); overflow: auto;'"/>
   </el-container>
 </template>
 

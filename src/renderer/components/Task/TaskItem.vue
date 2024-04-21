@@ -3,14 +3,22 @@
     <div class="task-name" :title="taskFullName">
       <span>{{ taskFullName }}</span>
     </div>
-    <mo-task-item-actions mode="LIST" :task="task" />
+    <!-- <mo-task-item-actions mode="LIST" :task="task" /> -->
     <div class="task-progress">
       <mo-task-progress
         :completed="Number(task.completedLength)"
         :total="Number(task.totalLength)"
         :status="taskStatus"
       />
-      <mo-task-progress-info :task="task" />
+
+      <el-row class="task-progress-info" :gutter="12">
+        <el-col :span="18">
+          <mo-task-progress-info :task="task" />
+        </el-col>
+        <el-col :span="6" style="text-align: right;">
+          <mo-task-item-actions mode="LIST" :task="task" />
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -98,11 +106,11 @@
   &:hover {
     border-color: $--task-item-hover-border-color;
   }
-  .task-item-actions {
-    position: absolute;
-    top: 16px;
-    right: 12px;
-  }
+  // .task-item-actions {
+  //   position: absolute;
+  //   top: 16px;
+  //   right: 12px;
+  // }
 }
 .selected .task-item {
   border-color: $--task-item-hover-border-color;
@@ -110,7 +118,7 @@
 .task-name {
   color: #505753;
   margin-bottom: 1.5rem;
-  margin-right: 200px;
+  // margin-right: 200px;
   word-break: break-all;
   min-height: 26px;
   &> span {

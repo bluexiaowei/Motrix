@@ -190,7 +190,8 @@
 
 <style lang="scss">
 .task-item-actions {
-  // width: 28px;
+  display: inline-block;
+  width: 160px !important;
   height: 24px;
   padding: 0 10px;
   margin: 0;

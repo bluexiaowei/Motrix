@@ -1,16 +1,10 @@
 <template>
   <el-progress
-    v-if="isActive"
+    class="mo-task-progress"
     :percentage="percent"
-    :show-text="false"
-    status="success"
-    :color="color">
-  </el-progress>
-  <el-progress
-    v-else
-    :percentage="percent"
-    :show-text="false"
-    :color="color">
+    :show-text="true"
+    :color="color"
+>
   </el-progress>
 </template>
 
@@ -46,3 +40,9 @@
     }
   }
 </script>
+
+<style>
+  .mo-task-progress .el-progress-bar {
+    width: calc(100% - 10px);
+  }
+</style>
