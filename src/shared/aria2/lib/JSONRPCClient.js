@@ -4,6 +4,7 @@ import { EventEmitter } from 'node:events'
 import _fetch from 'node-fetch'
 import _WebSocket from 'ws'
 import { JSONRPCError } from './JSONRPCError'
+import axios from 'axios'
 
 const Deferred = require('./Deferred')
 const promiseEvent = require('./promiseEvent')
@@ -47,24 +48,40 @@ export class JSONRPCClient extends EventEmitter {
     })
   }
 
-  async http (message) {
-    const response = await fetch(this.url('http'), {
+  // async http (message) {
+  //   const response = await fetch(this.url('http'), {
+  //     method: 'POST',
+  //     body: JSON.stringify(message),
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+
+  //   response
+  //     .json()
+  //     .then(this._onmessage)
+  //     .catch((err) => {
+  //       this.emit('error', err)
+  //     })
+
+  //   return response
+  // }
+
+  http (message) {
+    return axios({
+      url: this.url('http'),
       method: 'POST',
-      body: JSON.stringify(message),
+      body: message,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
+    }).then((data) => {
+      this._onmessage(data)
+    }).catch((err) => {
+      this.emit('error', err)
     })
-
-    response
-      .json()
-      .then(this._onmessage)
-      .catch((err) => {
-        this.emit('error', err)
-      })
-
-    return response
   }
 
   _buildMessage (method, params) {
