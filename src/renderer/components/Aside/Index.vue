@@ -47,7 +47,7 @@
       vibrancy () {
         return is.macOS()
           ? {
-            backgroundColor: 'transparent'
+            // backgroundColor: 'transparent'
           }
           : {}
       }
